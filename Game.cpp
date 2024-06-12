@@ -36,6 +36,9 @@ void Game::Update(float delta)
 
 void Game::ProcessEvents()
 {
-
-
+	sf::Event event;
+	while (_wnd->pollEvent(event))
+	{
+		break;
+	}
 }
