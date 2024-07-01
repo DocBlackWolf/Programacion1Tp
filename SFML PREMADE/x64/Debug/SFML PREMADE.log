@@ -1,3 +1,33 @@
-﻿  Game.cpp
-E:\Repositorys\Programacion1Tp\Game.cpp(8,12): warning C4305: '=': truncamiento de 'double' a 'float'
+﻿  Afichmation.cpp
+E:\Repositorys\Programacion1Tp\Afichmation.cpp(16,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\Repositorys\Programacion1Tp\Afichmation.cpp(16,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\Repositorys\Programacion1Tp\Afichmation.cpp(33,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\Repositorys\Programacion1Tp\Afichmation.cpp(33,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\Repositorys\Programacion1Tp\Afichmation.cpp(90,12): warning C4018: '>': no coinciden signed/unsigned
+E:\Repositorys\Programacion1Tp\Afichmation.cpp(102,11): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+E:\Repositorys\Programacion1Tp\Afichmation.cpp(108,11): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Block.cpp
+  Game.cpp
+  ImageManager.cpp
+  main.cpp
+  Player.cpp
+E:\Repositorys\Programacion1Tp\Player.cpp(18,24): warning C4244: '+=': conversión de 'double' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+E:\Repositorys\Programacion1Tp\Player.cpp(22,24): warning C4244: '-=': conversión de 'double' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Generando código...
   SFML PREMADE.vcxproj -> E:\Repositorys\Programacion1Tp\x64\Debug\SFML PREMADE.exe

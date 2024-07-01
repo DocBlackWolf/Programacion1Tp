@@ -14,5 +14,9 @@ private:
 	sf::Texture playerText;
 	sf::Sprite playerSpr;
 	sf::Vector2f PlayerPos;
+	float JumpSpeed;
+	bool Jumped;
+	sf::Clock TSJ;//Time Since Jump
+
 };
 
