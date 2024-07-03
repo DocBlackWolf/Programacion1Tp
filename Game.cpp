@@ -1,18 +1,13 @@
 #include "Game.h"
 
 
-Game::Game()
+Game::Game() : blocks{
+		Block(sf::Vector2f(100, 420),"Block 1"),
+		Block(sf::Vector2f(200, 420),"Block 2"),
+		Block(sf::Vector2f(300, 420),"Block 3")
+}
 {
 	_wnd = std::make_unique<sf::RenderWindow>(sf::VideoMode(600, 600), "game window");
-
-	if (!Mfont.loadFromFile("Recursos/Fuentes/comic.ttf")) {
-		std::cerr << "Failed to load font\n";
-		throw std::runtime_error("Failed to load font");
-	}
-	else {
-		std::cout << "Font loaded successfully\n";
-	}
-
 	_player = std::make_unique<Player>();
 	Grativy = 0.001f;
 
@@ -40,6 +35,11 @@ void Game::Draw()
 	_wnd->clear(sf::Color::White);
 
 	_player->Draw(_wnd);
+
+	for (int i = 0; i < 3; ++i) {
+		std::cout << "Drawing block " << i << std::endl;
+		blocks[i].Draw(_wnd);
+	}
 
 	_wnd->display();
 	

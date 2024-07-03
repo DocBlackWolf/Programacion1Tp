@@ -1,12 +1,13 @@
 #include "Block.h"
 
-Block::Block(sf::Vector2f Pos, sf::Font font, std::string string)
+Block::Block(sf::Vector2f Pos,std::string string)
 {
     BTex.loadFromFile("Recursos/Imagenes/bloque_pared.png");
+    Font.loadFromFile("Recursos/Fuentes/junegull.ttf");
     BSpr.setTexture(BTex);
     BSpr.setPosition(Pos);
 
-    text.setFont(font);
+    text.setFont(Font);
     text.setString(string);
     text.setCharacterSize(30);
     text.setFillColor(sf::Color::White);
