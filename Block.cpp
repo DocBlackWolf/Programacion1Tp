@@ -5,9 +5,6 @@ Block::Block()
     BTex.loadFromFile("Recursos/Imagenes/bloque_pared.png");
     Font.loadFromFile("Recursos/Fuentes/junegull.ttf");
     BSpr.setTexture(BTex);
-  
-    //Have to migrate most builder functionality to a separate class 
-
     text.setFont(Font);
     text.setCharacterSize(30);
     text.setFillColor(sf::Color::Black);
@@ -20,7 +17,13 @@ void Block::Draw(std::unique_ptr<sf::RenderWindow>& _wnd) {
 	
 }
 
+void Block::RandomizeValue()
+{
+
+}
+
 void Block::setPosition(sf::Vector2f Pos)
 {
     BSpr.setPosition(Pos);
+    text.setPosition(Pos);
 }

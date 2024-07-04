@@ -3,15 +3,11 @@
 
 Game::Game() 
 {
-	blocks[0].setPosition(sf::Vector2f(20, 300));
-	blocks[1].setPosition(sf::Vector2f(30, 300));
-	blocks[2].setPosition(sf::Vector2f(40, 300));
-	blocks[3].setPosition(sf::Vector2f(50, 300));
-	blocks[4].setPosition(sf::Vector2f(60, 300));
-	
-
-
 	_wnd = std::make_unique<sf::RenderWindow>(sf::VideoMode(600, 600), "game window");
+	for (int i = 0; i < 10; ++i) {
+		blocks[i].setPosition(sf::Vector2f(100 + 40 * i, 420));
+	}
+	
 	_player = std::make_unique<Player>();
 	Grativy = 0.001f;
 
@@ -40,7 +36,7 @@ void Game::Draw()
 
 	_player->Draw(_wnd);
 
-	for (int i = 0; i < 5; ++i) {
+	for (int i = 0; i < 10; ++i) {
 		std::cout << "Drawing block " << i << std::endl;
 		blocks[i].Draw(_wnd);
 	}

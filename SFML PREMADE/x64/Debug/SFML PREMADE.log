@@ -1,5 +1,7 @@
-﻿  Block.cpp
-  Game.cpp
-  main.cpp
-  Generando código...
+﻿  Game.cpp
+E:\Repositorys\Programacion1Tp\Game.cpp(8,42): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
   SFML PREMADE.vcxproj -> E:\Repositorys\Programacion1Tp\x64\Debug\SFML PREMADE.exe

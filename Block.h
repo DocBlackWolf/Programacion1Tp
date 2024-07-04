@@ -5,6 +5,7 @@ class Block
 public:
 	Block();
 	void Draw(std::unique_ptr<sf::RenderWindow>& _wnd);
+	void RandomizeValue();
 	void setPosition(sf::Vector2f Pos);
 private:
 	sf::Texture BTex;
