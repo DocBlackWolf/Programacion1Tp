@@ -16,9 +16,13 @@ private:
 	void Update(float delta);
 	void ProcessEvents();
 
+	
+
 	std::unique_ptr<sf::RenderWindow> _wnd;
 	std::unique_ptr<Player> _player;
-	Block blocks[3];
+	Block blocks[5];
+	
+
 	float Grativy;
 
 

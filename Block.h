@@ -3,12 +3,14 @@
 class Block
 {
 public:
-	Block(sf::Vector2f Pos,std::string string);
+	Block();
 	void Draw(std::unique_ptr<sf::RenderWindow>& _wnd);
+	void setPosition(sf::Vector2f Pos);
 private:
 	sf::Texture BTex;
 	sf::Sprite BSpr;
 	sf::Font Font;
 	sf::Text text;
+
 };
 

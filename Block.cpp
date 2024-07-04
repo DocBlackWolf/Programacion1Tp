@@ -1,20 +1,26 @@
 #include "Block.h"
 
-Block::Block(sf::Vector2f Pos,std::string string)
+Block::Block()
 {
     BTex.loadFromFile("Recursos/Imagenes/bloque_pared.png");
     Font.loadFromFile("Recursos/Fuentes/junegull.ttf");
     BSpr.setTexture(BTex);
-    BSpr.setPosition(Pos);
+  
+    //Have to migrate most builder functionality to a separate class 
 
     text.setFont(Font);
-    text.setString(string);
     text.setCharacterSize(30);
-    text.setFillColor(sf::Color::White);
+    text.setFillColor(sf::Color::Black);
     text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 }
 
 void Block::Draw(std::unique_ptr<sf::RenderWindow>& _wnd) {
 	_wnd->draw(BSpr);
-	_wnd->draw(text);
+    _wnd->draw(text);
+	
+}
+
+void Block::setPosition(sf::Vector2f Pos)
+{
+    BSpr.setPosition(Pos);
 }
