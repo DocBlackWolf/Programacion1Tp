@@ -9,6 +9,7 @@ public:
 	void Draw(std::unique_ptr<sf::RenderWindow>& _wnd);
 	void SetPos(sf::Vector2f Pos);
 	sf::Vector2f GetPos() const;
+	sf::FloatRect GetBounds();
 
 private:
 	sf::Texture playerText;

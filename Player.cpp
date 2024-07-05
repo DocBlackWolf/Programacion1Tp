@@ -59,3 +59,8 @@ sf::Vector2f Player::GetPos() const
 
 	return PlayerPos;
 }
+
+sf::FloatRect Player::GetBounds()
+{
+	return playerSpr.getGlobalBounds();
+}

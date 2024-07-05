@@ -6,7 +6,10 @@ public:
 	Block();
 	void Draw(std::unique_ptr<sf::RenderWindow>& _wnd);
 	void RandomizeValue();
-	void setPosition(sf::Vector2f Pos);
+	void setPosition(sf::Vector2f Pos); 
+	void SwichStatus();
+	sf::FloatRect GetBounds();
+
 private:
 	sf::Texture BTex;
 	sf::Sprite BSpr;
