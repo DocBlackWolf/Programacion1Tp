@@ -7,7 +7,8 @@ public:
 	void Draw(std::unique_ptr<sf::RenderWindow>& _wnd);
 	void RandomizeValue();
 	void setPosition(sf::Vector2f Pos); 
-	void SwichStatus();
+	void SwichStatus(bool Status);
+	int GetNumber();
 	sf::FloatRect GetBounds();
 
 private:
@@ -15,6 +16,7 @@ private:
 	sf::Sprite BSpr;
 	sf::Font Font;
 	sf::Text text;
+	int BlockValue;
 
 };
 
