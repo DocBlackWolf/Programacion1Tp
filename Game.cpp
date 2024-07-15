@@ -50,7 +50,8 @@ void Game::Update(float delta)
 
 	//checks if the player interacted with the correct block and swiches states
 
-	for (int i = 0; i < 10; ++i) {
+	for (int i = 0; i < 10; ++i) 
+	{
 
 
 		if ((blocks[i].GetBounds().intersects(_player->GetBounds())) && lastInteraction.getElapsedTime().asSeconds() > 1)
@@ -63,7 +64,7 @@ void Game::Update(float delta)
 			}
 			else if (StoredValues[ArrayPositon] != blocks[i].GetNumber()) {
 				GameLost();
-				_clock->SetTime(0);
+				
 			}
 
 			lastInteraction.restart();
@@ -71,7 +72,23 @@ void Game::Update(float delta)
 		}
 
 
+		if (blocks[i].GetStatus() == true)
+		{
+			allTrue++;
+		}
+		else if (blocks[i].GetStatus() == false)
+		{
+			allTrue--;
+		}
+		if (allTrue >= 10) {
+			GameLost();
+		}
+
+	
+
+
 	}
+	
 
 	///////////////////////////////////////////////////////////////////////////
 
@@ -86,6 +103,11 @@ void Game::ProcessEvents()
 	sf::Event event;
 	while (_wnd->pollEvent(event))
 	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+			RandomizeBlocks();
+			_clock->SetTime(60);
+			_player->SetPos(sf::Vector2f(400, 400));
+		}
 		break;
 	}
 }
@@ -106,6 +128,7 @@ void Game::GameLost()
 
 			blocks[i].SetNumber(StoredValues[i]);
 			blocks[i].SwichStatus(false);
+			_clock->SetTime(0);
 	}
 }
 

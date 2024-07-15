@@ -29,6 +29,7 @@ private:
 	sf::Clock lastInteraction; //Counts down since the last interaction was done, to prevent repeted activations.
 	int StoredValues[10]; //stores the organized values of block
 	int ArrayPositon; //stores the array position so it can be access by all members
+	int allTrue; //use to store the status, if a block returns true it adds one
 	
 
 	float Grativy;
