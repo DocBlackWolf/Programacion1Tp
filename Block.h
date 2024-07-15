@@ -8,7 +8,9 @@ public:
 	void RandomizeValue();
 	void setPosition(sf::Vector2f Pos); 
 	void SwichStatus(bool Status);
+	bool GetStatus();
 	int GetNumber();
+	void SetNumber(int Value);
 	sf::FloatRect GetBounds();
 
 private:
@@ -16,6 +18,7 @@ private:
 	sf::Sprite BSpr;
 	sf::Font Font;
 	sf::Text text;
+	bool Status;
 	int BlockValue;
 
 };

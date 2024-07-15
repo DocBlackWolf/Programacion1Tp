@@ -31,16 +31,34 @@ void Block::setPosition(sf::Vector2f Pos)
     text.setPosition(Pos);
 }
 
-void Block::SwichStatus(bool Status)
+void Block::SwichStatus(bool bolean)
 {
-    if (Status) {
+    if (bolean) {
         text.setFillColor(sf::Color::Green);
+        Status = true;
+        
     }
+    else
+    {
+        text.setFillColor(sf::Color::White);
+        Status = false;
+    }
+}
+
+bool Block::GetStatus()
+{
+    return Status;
 }
 
 int Block::GetNumber()
 {
     return BlockValue;
+}
+
+void Block::SetNumber(int Value)
+{
+    std::string ValueStr = std::to_string(Value);
+    text.setString(ValueStr);
 }
 
 sf::FloatRect Block::GetBounds()

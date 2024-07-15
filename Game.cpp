@@ -5,11 +5,12 @@ Game::Game()
 {
 	_wnd = std::make_unique<sf::RenderWindow>(sf::VideoMode(1000, 600), "game window");
 	for (int i = 0; i < 10; ++i) {
-		blocks[i].setPosition(sf::Vector2f(100 + 60 * i, 410));
+		blocks[i].setPosition(sf::Vector2f(110 + 69 * i, 400));
 		
 	}
 	RandomizeBlocks();
 	_player = std::make_unique<Player>();
+	_clock = std::make_unique<Clock>(60,sf::Vector2f(280,200));
 	Grativy = 0.001f;
 }
 
@@ -32,7 +33,7 @@ void Game::Loop()
 void Game::Draw()
 {
 	_wnd->clear(sf::Color::White);
-
+	_clock->Draw(_wnd);
 	_player->Draw(_wnd);
 
 	for (int i = 0; i < 10; ++i) {
@@ -45,20 +46,38 @@ void Game::Draw()
 void Game::Update(float delta)
 {
 	_player->Movement(delta);
+	_clock->BackwardsCount();
 
+	//checks if the player interacted with the correct block and swiches states
 
 	for (int i = 0; i < 10; ++i) {
 
 
+		if ((blocks[i].GetBounds().intersects(_player->GetBounds())) && lastInteraction.getElapsedTime().asSeconds() > 1)
+		{
+			
 
-		if (blocks[i].GetBounds().intersects(_player->GetBounds()) && StoredValues[ArrayPositon] == blocks[i].GetNumber()) {
-			blocks[i].SwichStatus(true);
-			ArrayPositon++;
+			if (StoredValues[ArrayPositon] == blocks[i].GetNumber() ) {
+				blocks[i].SwichStatus(true);
+				ArrayPositon++;
+			}
+			else if (StoredValues[ArrayPositon] != blocks[i].GetNumber()) {
+				GameLost();
+				_clock->SetTime(0);
+			}
+
+			lastInteraction.restart();
+
 		}
 
 
 	}
 
+	///////////////////////////////////////////////////////////////////////////
+
+	if (_clock->TimeRemaining() < 0) {
+		GameLost();
+	}
 
 }
 
@@ -75,13 +94,19 @@ void Game::RandomizeBlocks()
 {
 	for (int i = 0; i < 10; ++i) {
 		blocks[i].RandomizeValue();
+		blocks[i].SwichStatus(false);
 		StoredValues[i] = blocks[i].GetNumber();
 	}
 	BubbleSort(StoredValues, 10);
+}
+
+void Game::GameLost()
+{
 	for (int i = 0; i < 10; ++i) {
-		std::cout << StoredValues[i] << " ";
+
+			blocks[i].SetNumber(StoredValues[i]);
+			blocks[i].SwichStatus(false);
 	}
-	
 }
 
 void Game::BubbleSort(int arr[], int n) {
