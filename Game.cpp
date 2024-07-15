@@ -4,9 +4,14 @@
 Game::Game() 
 {
 	_wnd = std::make_unique<sf::RenderWindow>(sf::VideoMode(1000, 600), "game window");
+	background.loadFromFile("Recursos/Imagenes/mundo_fondo.jpg");
+	spritebackground.setTexture(background);
+	spritebackground.setPosition(sf::Vector2f(0, 0));
+	spritebackground.setScale(1.4f,1.1f);
+
+
 	for (int i = 0; i < 10; ++i) {
 		blocks[i].setPosition(sf::Vector2f(110 + 69 * i, 400));
-		
 	}
 	RandomizeBlocks();
 	_player = std::make_unique<Player>();
@@ -33,6 +38,7 @@ void Game::Loop()
 void Game::Draw()
 {
 	_wnd->clear(sf::Color::White);
+	_wnd->draw(spritebackground);
 	_clock->Draw(_wnd);
 	_player->Draw(_wnd);
 

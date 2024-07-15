@@ -27,6 +27,8 @@ private:
 	std::unique_ptr<Clock> _clock;
 	Block blocks[10]; //object array of blocks
 	sf::Clock lastInteraction; //Counts down since the last interaction was done, to prevent repeted activations.
+	sf::Texture background; //background
+	sf::Sprite spritebackground;
 	int StoredValues[10]; //stores the organized values of block
 	int ArrayPositon; //stores the array position so it can be access by all members
 	int allTrue; //use to store the status, if a block returns true it adds one
